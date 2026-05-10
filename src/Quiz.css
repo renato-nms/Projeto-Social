@@ -1,0 +1,327 @@
+/* src/Quiz.css */
+.quiz-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #3b82f6, #9333ea);
+  padding: 2rem 1rem;
+}
+
+.quiz-card {
+  max-width: 56rem;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-header {
+  margin-bottom: 2rem;
+}
+
+.quiz-header h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  text-align: center;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.finish-button {
+  background-color: #ef4444;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.current-player {
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.current-player-label {
+  font-size: 1rem;
+}
+
+.current-player-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.options-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .options-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.option-button {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.option-button-selected {
+  background-color: #eab308;
+  color: white;
+}
+
+.option-button-unselected {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.confirm-button {
+  width: 100%;
+  background-color: #22c55e;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+}
+
+.confirm-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.feedback {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.feedback-message {
+  color: white;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.correct-answer {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.next-button {
+  background-color: #eab308;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.ranking-title {
+  font-size: 1.875rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.ranking-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.restart-button {
+  background-color: #22c55e;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+/* Tela inicial (cadastro de jogadores) */
+.start-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #3b82f6, #9333ea);
+}
+
+.start-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 28rem;
+  backdrop-filter: blur(4px);
+}
+
+.start-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.player-input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.player-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.add-button {
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.start-button {
+  width: 100%;
+  background-color: #22c55e;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+/* No final do seu index.css */
+.quiz-container,
+.start-container {
+  width: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dificuldade selector */
+.difficulty-selector {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.difficulty-button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  transition: all 0.2s;
+}
+.difficulty-button.selected {
+  background-color: var(--accent, #c084fc);
+  box-shadow: 0 0 0 2px white;
+}
+/* 4 colunas no desktop (para 4 alternativas) */
+.options-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas para 4 itens */
+  }
+}
+@media (min-width: 1024px) {
+  .options-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas grandes */
+  }
+}
+/* Tela de resposta (correta/incorreta) */
+.response-screen {
+  text-align: center;
+  padding: 2rem;
+}
+.response-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.response-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+}
+.response-message {
+  color: white;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+.continue-button {
+  background-color: #eab308;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
