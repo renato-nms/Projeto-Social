@@ -109,3 +109,70 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* =========================================== */
+/* FORÇA TELA CHEIA PARA O QUIZ (sem bordas)   */
+/* =========================================== */
+.quiz-container,
+.start-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  max-width: 100% !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-inline: none !important;
+  background: radial-gradient(circle at 10% 20%, #0B0B1A, #03030f) !important;
+  overflow-y: auto !important;
+  z-index: 1000 !important;
+}
+
+/* Remove as bordas laterais do #root apenas quando o quiz está ativo */
+body:has(.quiz-container), 
+body:has(.start-container) {
+  overflow: hidden;
+}
+
+body:has(.quiz-container) #root,
+body:has(.start-container) #root {
+  border-inline: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* =========================================== */
+/* FORÇA TELA CHEIA PARA O QUIZ (sem bordas)   */
+/* =========================================== */
+.quiz-container,
+.start-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  max-width: 100% !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-inline: none !important;
+  background: radial-gradient(circle at 10% 20%, #0B0B1A, #03030f) !important;
+  overflow-y: auto !important;
+  z-index: 1000 !important;
+}
+
+body:has(.quiz-container), 
+body:has(.start-container) {
+  overflow: hidden;
+}
+
+body:has(.quiz-container) #root,
+body:has(.start-container) #root {
+  border-inline: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}

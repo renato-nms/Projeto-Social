@@ -132,4 +132,4 @@ export function resetMockState() {
     medio: new Set(),
     dificil: new Set(),
   };
-}
+}+

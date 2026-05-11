@@ -1,327 +1,272 @@
-/* src/Quiz.css */
-.quiz-container {
-  min-height: 100vh;
-  background: linear-gradient(to bottom, #3b82f6, #9333ea);
-  padding: 2rem 1rem;
-}
-
-.quiz-card {
-  max-width: 56rem;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.quiz-header {
-  margin-bottom: 2rem;
-}
-
-.quiz-header h1 {
-  font-size: 1.875rem;
-  font-weight: bold;
-  color: white;
+/* src/Quiz.css - Tela cheia, lista vertical A/B/C/D, cores SUPERAR! */
+* {
   margin: 0;
-  text-align: center;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.back-button {
-  display: inline-block;
-  margin-bottom: 1rem;
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
+:root {
+  --bg-dark: #0B0B1A;
+  --card-bg: rgba(20, 20, 40, 0.85);
+  --border-color: rgba(255, 140, 0, 0.3);
+  --aprender: #FF8C00;
+  --superar: #00BFFF;
+  --facil: #22c55e;
+  --medio: #eab308;
+  --dificil: #ef4444;
+  --text-light: #F0F0F0;
+  --shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-.back-button:hover {
-  text-decoration: underline;
-}
-
-.finish-button {
-  background-color: #ef4444;
-  color: white;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border: none;
-  cursor: pointer;
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
-}
-
-.current-player {
-  text-align: center;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.current-player-label {
-  font-size: 1rem;
-}
-
-.current-player-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.question-text {
-  font-size: 1.5rem;
-  color: white;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.options-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .options-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.option-button {
-  padding: 1rem;
-  border-radius: 0.75rem;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.2s;
-}
-
-.option-button-selected {
-  background-color: #eab308;
-  color: white;
-}
-
-.option-button-unselected {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.confirm-button {
-  width: 100%;
-  background-color: #22c55e;
-  color: white;
-  font-weight: bold;
-  padding: 0.75rem;
-  border-radius: 0.75rem;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 1.5rem;
-}
-
-.confirm-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.feedback {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.feedback-message {
-  color: white;
-  font-size: 1.125rem;
-  margin-bottom: 1rem;
-}
-
-.correct-answer {
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.next-button {
-  background-color: #eab308;
-  color: white;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.ranking-title {
-  font-size: 1.875rem;
-  color: white;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.ranking-item {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  color: white;
-  margin-bottom: 0.5rem;
-}
-
-.restart-button {
-  background-color: #22c55e;
-  color: white;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 1.5rem;
-  width: 100%;
-}
-
-/* Tela inicial (cadastro de jogadores) */
-.start-container {
-  min-height: 100vh;
+.quiz-container, .start-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 10% 20%, var(--bg-dark), #03030f);
+  overflow-y: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #3b82f6, #9333ea);
+  padding: 1rem;
+  z-index: 1000;
 }
 
-.start-card {
-  background-color: rgba(255, 255, 255, 0.1);
+.quiz-card, .start-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
   padding: 2rem;
-  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
   width: 100%;
-  max-width: 28rem;
-  backdrop-filter: blur(4px);
+  max-width: 800px;
+  margin: auto;
 }
 
-.start-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
+h1, .ranking-title, .start-title {
+  color: var(--superar);
   text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.player-input {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 0.75rem;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-}
-
-.player-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.add-button {
-  width: 100%;
-  background-color: #3b82f6;
-  color: white;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: none;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-
-.start-button {
-  width: 100%;
-  background-color: #22c55e;
-  color: white;
   font-weight: bold;
-  padding: 0.75rem;
-  border-radius: 0.75rem;
+}
+
+.back-button {
+  background: none;
   border: none;
+  color: var(--text-light);
   cursor: pointer;
-  margin-top: 1rem;
   font-size: 1rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.back-button:hover { color: var(--superar); }
+
+.finish-button {
+  background-color: rgba(0,0,0,0.6);
+  border: 1px solid var(--superar);
+  color: var(--superar);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.finish-button:hover {
+  background-color: var(--superar);
+  color: white;
 }
 
-/* No final do seu index.css */
-.quiz-container,
-.start-container {
-  width: 100%;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* Dificuldade selector */
 .difficulty-selector {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
 }
 .difficulty-button {
-  flex: 1;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
   border: none;
+  border-radius: 2rem;
+  font-weight: bold;
   cursor: pointer;
-  font-weight: bold;
-  background-color: rgba(255,255,255,0.2);
   color: white;
-  transition: all 0.2s;
+  transition: transform 0.1s;
 }
-.difficulty-button.selected {
-  background-color: var(--accent, #c084fc);
-  box-shadow: 0 0 0 2px white;
+.difficulty-button:hover { transform: scale(1.02); filter: brightness(1.05); }
+
+/* LISTA VERTICAL COM LETRAS (A, B, C, D) */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
 }
-/* 4 colunas no desktop (para 4 alternativas) */
-.options-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 768px) {
-  .options-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas para 4 itens */
-  }
-}
-@media (min-width: 1024px) {
-  .options-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas grandes */
-  }
-}
-/* Tela de resposta (correta/incorreta) */
-.response-screen {
-  text-align: center;
-  padding: 2rem;
-}
-.response-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-.response-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 1rem;
-}
-.response-message {
-  color: white;
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-}
-.continue-button {
-  background-color: #eab308;
-  color: white;
-  font-weight: bold;
-  padding: 0.75rem 2rem;
-  border-radius: 0.75rem;
+.option-button {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 1rem;
   border: none;
   cursor: pointer;
   font-size: 1rem;
+  background-color: rgba(255,255,255,0.1);
+  color: var(--text-light);
+  transition: all 0.2s;
+  width: 100%;
+}
+.option-letter {
+  font-weight: bold;
+  margin-right: 0.75rem;
+  color: var(--superar);
+  min-width: 28px;
+}
+.option-button-selected {
+  background-color: var(--aprender);
+  color: white;
+}
+.option-button-selected .option-letter {
+  color: white;
+}
+.option-button-unselected:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.confirm-button {
+  width: 100%;
+  background-color: var(--aprender);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+.confirm-button:hover { background-color: #e07c00; }
+
+.continue-button {
+  background-color: var(--superar);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+}
+.continue-button:hover { background-color: #0099dd; }
+
+.ranking-item {
+  background: rgba(0,0,0,0.4);
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid var(--superar);
+  color: var(--text-light);
+}
+.restart-button {
+  background-color: var(--superar);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+}
+.player-input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid var(--border-color);
+  color: white;
+  margin-bottom: 0.75rem;
+}
+.player-input::placeholder { color: rgba(255,255,255,0.5); }
+
+.add-button {
+  background-color: var(--superar);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+.add-button:hover { background-color: #0099dd; }
+
+.start-button {
+  background-color: var(--aprender);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+}
+.start-button:hover { background-color: #e07c00; }
+
+.response-screen { text-align: center; padding: 1rem; }
+.response-icon { font-size: 4rem; margin-bottom: 1rem; }
+.response-title { font-size: 2rem; font-weight: bold; color: white; margin-bottom: 1rem; }
+.response-message { color: white; font-size: 1.125rem; margin-bottom: 2rem; }
+.current-player { text-align: center; margin-bottom: 1rem; }
+.current-player-label { color: var(--text-light); }
+.current-player-name { font-size: 1.5rem; font-weight: bold; color: var(--aprender); }
+
+.team-select-button {
+  background-color: rgba(255,255,255,0.2);
+  border: 1px solid var(--superar);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.team-select-button:hover:not(:disabled) {
+  background-color: var(--superar);
+}
+.team-selected {
+  background-color: var(--superar);
+  color: white;
+  border-color: white;
+}/* Botão "Passar a vez" - cor SUPERAR! */
+.pass-button {
+  background-color: var(--superar);  /* #00BFFF */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  flex: 1;
+  transition: 0.2s;
+}
+.pass-button:hover {
+  background-color: #0099dd; /* tom mais escuro para hover */
+}
+
+/* Botões de seleção de time (para passar a vez) - também alinhados com a paleta */
+.team-select-button {
+  background-color: rgba(0, 191, 255, 0.2); /* SUPERAR! com transparência */
+  border: 1px solid var(--superar);
+  padding: 0.75rem;
+  border-radius: 1rem;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: 0.2s;
+}
+.team-select-button:hover {
+  background-color: var(--superar);
+  color: white;
 }
