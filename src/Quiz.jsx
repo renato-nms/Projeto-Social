@@ -3,13 +3,14 @@ import { useState } from "react";
 import "./Quiz.css";
 
 // --------------------------------------------------------------
-// BANCO DE PERGUNTAS (textos completos, como você tinha)
+// BANCO DE PERGUNTAS (com suporte a imagem)
 // --------------------------------------------------------------
 const questionsBank = {
   facil: [
     {
       id: 1,
       enunciado: "Qual cidade é conhecida como a 'Capital da Alegria' e sedia um dos maiores carnavais do mundo?",
+      imagem: "",
       alternativas: [
         "Salvador, na Bahia – famosa pelo seu carnaval de rua e trios elétricos.",
         "Rio de Janeiro, no Rio de Janeiro – com o carnaval do sambódromo e bailes.",
@@ -20,7 +21,8 @@ const questionsBank = {
     },
     {
       id: 2,
-      enunciado: "Qual destes ecossistemas brasileiros é considerado a maior planície alagável do mundo e abriga uma fauna única como o jacaré-do-pantanal e a arara-azul?",
+      enunciado: "Qual destes ecossistemas brasileiros é considerado a maior planície alagável do mundo?",
+      imagem: "",
       alternativas: [
         "A Amazônia – floresta tropical que produz grande parte da umidade do continente.",
         "A Caatinga – bioma semiárido exclusivo do Brasil, com espécies adaptadas à seca.",
@@ -31,7 +33,8 @@ const questionsBank = {
     },
     {
       id: 3,
-      enunciado: "Na mitologia grega, quem foi o herói que realizou os doze trabalhos impossíveis, incluindo a captura do Leão de Nemeia e a limpeza dos estábulos de Áugias?",
+      enunciado: "Na mitologia grega, quem foi o herói que realizou os doze trabalhos impossíveis?",
+      imagem: "",
       alternativas: [
         "Perseu – conhecido por matar a Medusa e salvar Andrômeda.",
         "Teseu – famoso por derrotar o Minotauro no labirinto de Creta.",
@@ -44,7 +47,8 @@ const questionsBank = {
   medio: [
     {
       id: 1,
-      enunciado: "Qual físico teórico desenvolveu a teoria da relatividade geral, revolucionando a compreensão da gravidade, do espaço-tempo e prevendo fenômenos como buracos negros e a curvatura da luz?",
+      enunciado: "Qual físico teórico desenvolveu a teoria da relatividade geral?",
+      imagem: "",
       alternativas: [
         "Isaac Newton – formulou a lei da gravitação universal e as três leis do movimento.",
         "Niels Bohr – contribuiu para o modelo atômico e a mecânica quântica.",
@@ -55,7 +59,8 @@ const questionsBank = {
     },
     {
       id: 2,
-      enunciado: "Na literatura brasileira, qual movimento literário do século XIX tinha como principais características o nacionalismo, o indianismo e a exaltação da natureza, sendo seus maiores expoentes José de Alencar e Gonçalves Dias?",
+      enunciado: "Na literatura brasileira, qual movimento literário do século XIX tinha como principais características o nacionalismo e o indianismo?",
+      imagem: "",
       alternativas: [
         "Barroco – marcado por dualismo, conflitos religiosos e autores como Gregório de Matos.",
         "Romantismo – primeira fase com forte apelo à construção da identidade nacional e figura do índio.",
@@ -68,7 +73,8 @@ const questionsBank = {
   dificil: [
     {
       id: 1,
-      enunciado: "Qual evento histórico, ocorrido em 1969, representou a primeira vez que um ser humano pisou na Lua, sendo parte da corrida espacial entre Estados Unidos e União Soviética durante a Guerra Fria, e contou com os astronautas Neil Armstrong, Buzz Aldrin e Michael Collins?",
+      enunciado: "Qual evento histórico, ocorrido em 1969, representou a primeira vez que um ser humano pisou na Lua?",
+      imagem: "",
       alternativas: [
         "Apollo 11 – missão espacial norte-americana que levou os primeiros homens à superfície lunar.",
         "Sputnik 1 – primeiro satélite artificial lançado pela União Soviética em 1957.",
@@ -80,7 +86,7 @@ const questionsBank = {
   ]
 };
 
-// Controle de perguntas já usadas
+// Controle de perguntas usadas
 let usedQuestions = { facil: [], medio: [], dificil: [] };
 const getRandomQuestion = (difficulty) => {
   const available = questionsBank[difficulty];
@@ -100,6 +106,7 @@ export default function Quiz() {
   const [gameStarted, setGameStarted] = useState(false);
   const [teamNames, setTeamNames] = useState([""]);
   const [teams, setTeams] = useState([]);
+  const [turnIndex, setTurnIndex] = useState(0);
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
   const [waitingDifficulty, setWaitingDifficulty] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -118,6 +125,11 @@ export default function Quiz() {
     updated[idx] = val;
     setTeamNames(updated);
   };
+  const removeTeam = (idx) => {
+    const updated = [...teamNames];
+    updated.splice(idx, 1);
+    setTeamNames(updated.length === 0 ? [""] : updated);
+  };
 
   const startGame = () => {
     const validNames = teamNames.filter(n => n.trim() !== "");
@@ -129,6 +141,7 @@ export default function Quiz() {
     setTeams(teamsData);
     setGameStarted(true);
     setWaitingDifficulty(true);
+    setTurnIndex(0);
     setCurrentTeamIndex(0);
     setCurrentQuestion(null);
     setShowQuestionScreen(false);
@@ -149,8 +162,7 @@ export default function Quiz() {
     setCurrentQuestion(question);
     setWaitingDifficulty(false);
     setShowQuestionScreen(true);
-    setShowPassTeamSelector(false);
-    setShowResponseScreen(false);
+    setCurrentTeamIndex(turnIndex);
     setSelectedOption(null);
     setQuestionLocked(false);
   };
@@ -190,6 +202,9 @@ export default function Quiz() {
   };
 
   const goToNextQuestion = () => {
+    const nextTurn = (turnIndex + 1) % teams.length;
+    setTurnIndex(nextTurn);
+    setCurrentTeamIndex(nextTurn);
     setWaitingDifficulty(true);
     setCurrentQuestion(null);
     setShowQuestionScreen(false);
@@ -200,22 +215,8 @@ export default function Quiz() {
   };
 
   const handleFinishGame = () => {
-    if (window.confirm("Encerrar quiz?")) setShowScore(true);
-  };
-
-  const handleExit = () => {
-    if (window.confirm("Sair? Perderá progresso.")) {
-      setGameStarted(false);
-      setTeamNames([""]);
-      setTeams([]);
-      setWaitingDifficulty(false);
-      setCurrentQuestion(null);
-      setShowQuestionScreen(false);
-      setShowPassTeamSelector(false);
-      setShowResponseScreen(false);
-      setShowScore(false);
-      setSelectedOption(null);
-      setQuestionLocked(false);
+    if (window.confirm("Encerrar quiz? O ranking será exibido.")) {
+      setShowScore(true);
     }
   };
 
@@ -236,14 +237,27 @@ export default function Quiz() {
 
   const sortedTeams = [...teams].sort((a, b) => b.score - a.score);
 
-  // Telas
+  // ========== TELAS ==========
   if (!gameStarted) {
     return (
       <div className="start-container">
         <div className="start-card">
           <h1 className="start-title">Nome dos Times</h1>
           {teamNames.map((name, idx) => (
-            <input key={idx} type="text" placeholder={`Time ${idx + 1}`} value={name} onChange={(e) => handleTeamNameChange(idx, e.target.value)} className="player-input" />
+            <div key={idx} className="team-input-group">
+              <input
+                type="text"
+                placeholder={`Time ${idx + 1}`}
+                value={name}
+                onChange={(e) => handleTeamNameChange(idx, e.target.value)}
+                className="player-input"
+              />
+              {teamNames.length > 1 && (
+                <button onClick={() => removeTeam(idx)} className="remove-team-button" title="Remover time">
+                  ❌
+                </button>
+              )}
+            </div>
           ))}
           <button onClick={addTeam} className="add-button">+ Adicionar Time</button>
           <button onClick={startGame} className="start-button">Iniciar Partida</button>
@@ -270,12 +284,19 @@ export default function Quiz() {
   }
 
   if (waitingDifficulty) {
+    const currentTurnTeam = teams[turnIndex];
     return (
       <div className="quiz-container">
         <div className="quiz-card">
           <div style={{ textAlign: "center" }}>
-            <button onClick={handleExit} className="back-button" style={{ float: "left" }}>← Sair</button>
             <h1 style={{ color: "white", marginBottom: "0.5rem" }}>🎮 Mediador</h1>
+            <div style={{ marginBottom: "1rem" }}>
+              <p style={{ color: "#ccc", fontSize: "1.1rem" }}>📢 Vez do time:</p>
+              <h2 style={{ color: "#FF8C00", margin: "0", fontSize: "2rem" }}>{currentTurnTeam?.name}</h2>
+              <p style={{ color: "#ccc", fontSize: "0.9rem", marginTop: "0.25rem" }}>
+                (pontuação: {currentTurnTeam?.score} pts)
+              </p>
+            </div>
             <p style={{ color: "#ccc", marginBottom: "2rem" }}>Escolha a dificuldade da próxima pergunta:</p>
             <div className="difficulty-selector">
               <button className="difficulty-button" onClick={() => chooseDifficulty("facil")} style={{ backgroundColor: "#22c55e" }}>Fácil</button>
@@ -312,7 +333,6 @@ export default function Quiz() {
     return (
       <div className="quiz-container">
         <div className="quiz-card">
-          <button onClick={handleExit} className="back-button" style={{ float: "left" }}>← Sair</button>
           <div className="response-screen">
             <div className="response-icon">{lastAnswerCorrect ? "🎉" : "❌"}</div>
             <div className="response-title">{lastAnswerCorrect ? "Correto!" : "Errado!"}</div>
@@ -326,20 +346,37 @@ export default function Quiz() {
     );
   }
 
+  // TELA DA PERGUNTA COM SUPORTE A IMAGEM
   if (showQuestionScreen && currentQuestion && teams.length) {
     const currentTeam = teams[currentTeamIndex];
     return (
       <div className="quiz-container">
         <div className="quiz-card">
-          <button onClick={handleExit} className="back-button" style={{ float: "left" }}>← Sair</button>
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}>
             <button onClick={handleFinishGame} className="finish-button">Encerrar Quiz</button>
           </div>
-          <div style={{ textAlign: "center", marginBottom: "1rem" }}>
-            <h3 style={{ color: "#FF8C00" }}>Vez do time:</h3>
-            <h2 style={{ color: "white" }}>{currentTeam.name}</h2>
+          <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+            <h3 style={{ color: "#FF8C00", margin: 0 }}>Vez do time:</h3>
+            <h2 style={{ color: "white", margin: "0.25rem 0" }}>{currentTeam.name}</h2>
           </div>
-          <h3 style={{ color: "white", textAlign: "center", marginBottom: "1rem" }}>{currentQuestion.enunciado}</h3>
+          
+          {/* CONTAINER DA PERGUNTA COM SUPORTE A IMAGEM */}
+          <div className="question-container">
+            {/* IMAGEM - aparece acima do enunciado se existir */}
+            {currentQuestion.imagem && currentQuestion.imagem.trim() !== "" && (
+              <div className="question-image">
+                <img 
+                  src={currentQuestion.imagem} 
+                  alt="Ilustração da pergunta" 
+                  className="pergunta-imagem"
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              </div>
+            )}
+            {/* ENUNCIADO */}
+            <h3 className="question-text">{currentQuestion.enunciado}</h3>
+          </div>
+
           <div className="options-list">
             {currentQuestion.alternativas.map((alt, idx) => {
               const letra = String.fromCharCode(65 + idx);
@@ -354,7 +391,7 @@ export default function Quiz() {
               );
             })}
           </div>
-          <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+          <div style={{ display: "flex", gap: "1rem", marginTop: "1.5rem" }}>
             <button onClick={confirmAnswer} disabled={selectedOption === null} className="confirm-button">Responder</button>
             <button onClick={openPassSelector} className="pass-button">Passar a vez</button>
           </div>

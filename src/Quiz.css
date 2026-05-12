@@ -270,3 +270,16 @@ h1, .ranking-title, .start-title {
   background-color: var(--superar);
   color: white;
 }
+/* Suporte a imagens nas perguntas */
+.question-image {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.pergunta-imagem {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
