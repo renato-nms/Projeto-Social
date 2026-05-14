@@ -3,6 +3,12 @@ import { useState } from "react";
 import "./Quiz.css";
 
 // --------------------------------------------------------------
+// CONFIGURAÇÃO DO TABULEIRO
+// --------------------------------------------------------------
+const TOTAL_HOUSES = 10; // Número total de casas (0 a 9, casa 9 é a final)
+const FINAL_HOUSE = TOTAL_HOUSES;
+
+// --------------------------------------------------------------
 // BANCO DE PERGUNTAS (com suporte a imagem)
 // --------------------------------------------------------------
 const questionsBank = {
@@ -102,6 +108,10 @@ const getRandomQuestion = (difficulty) => {
   return selected;
 };
 
+const resetGameState = () => {
+  usedQuestions = { facil: [], medio: [], dificil: [] };
+};
+
 export default function Quiz() {
   const [gameStarted, setGameStarted] = useState(false);
   const [teamNames, setTeamNames] = useState([""]);
@@ -114,7 +124,8 @@ export default function Quiz() {
   const [showPassTeamSelector, setShowPassTeamSelector] = useState(false);
   const [showResponseScreen, setShowResponseScreen] = useState(false);
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState(false);
-  const [showScore, setShowScore] = useState(false);
+  const [showWinnerScreen, setShowWinnerScreen] = useState(false);
+  const [winnerTeam, setWinnerTeam] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
   const [questionLocked, setQuestionLocked] = useState(false);
 
@@ -131,13 +142,46 @@ export default function Quiz() {
     setTeamNames(updated.length === 0 ? [""] : updated);
   };
 
+  const checkWinner = (updatedTeams, advancingTeamIndex) => {
+    const advancingTeam = updatedTeams[advancingTeamIndex];
+    if (advancingTeam.house >= FINAL_HOUSE) {
+      setWinnerTeam(advancingTeam);
+      setShowWinnerScreen(true);
+      setGameStarted(false);
+      setShowQuestionScreen(false);
+      setShowResponseScreen(false);
+      setWaitingDifficulty(false);
+      return true;
+    }
+    return false;
+  };
+
+  const resetGame = () => {
+    setGameStarted(false);
+    setTeamNames([""]);
+    setTeams([]);
+    setTurnIndex(0);
+    setCurrentTeamIndex(0);
+    setWaitingDifficulty(false);
+    setCurrentQuestion(null);
+    setShowQuestionScreen(false);
+    setShowPassTeamSelector(false);
+    setShowResponseScreen(false);
+    setShowWinnerScreen(false);
+    setWinnerTeam(null);
+    setSelectedOption(null);
+    setQuestionLocked(false);
+    resetGameState();
+  };
+
   const startGame = () => {
     const validNames = teamNames.filter(n => n.trim() !== "");
     if (validNames.length === 0) {
       alert("Digite pelo menos um time");
       return;
     }
-    const teamsData = validNames.map((name, i) => ({ id: i + 1, name, score: 0 }));
+    resetGameState();
+    const teamsData = validNames.map((name, i) => ({ id: i + 1, name, house: 0, score: 0 }));
     setTeams(teamsData);
     setGameStarted(true);
     setWaitingDifficulty(true);
@@ -147,10 +191,10 @@ export default function Quiz() {
     setShowQuestionScreen(false);
     setShowPassTeamSelector(false);
     setShowResponseScreen(false);
-    setShowScore(false);
+    setShowWinnerScreen(false);
+    setWinnerTeam(null);
     setSelectedOption(null);
     setQuestionLocked(false);
-    usedQuestions = { facil: [], medio: [], dificil: [] };
   };
 
   const chooseDifficulty = (difficulty) => {
@@ -176,11 +220,20 @@ export default function Quiz() {
     if (selectedOption === null || !currentQuestion || questionLocked) return;
     const isCorrect = selectedOption === currentQuestion.correta;
     setLastAnswerCorrect(isCorrect);
+    
+    let updatedTeams = [...teams];
     if (isCorrect) {
-      const updatedTeams = [...teams];
+      // Avança uma casa
+      updatedTeams[currentTeamIndex].house += 1;
       updatedTeams[currentTeamIndex].score += 1;
       setTeams(updatedTeams);
+      
+      // Verifica se alguém venceu
+      if (checkWinner(updatedTeams, currentTeamIndex)) {
+        return;
+      }
     }
+    
     setQuestionLocked(true);
     setShowQuestionScreen(false);
     setShowResponseScreen(true);
@@ -215,34 +268,35 @@ export default function Quiz() {
   };
 
   const handleFinishGame = () => {
-    if (window.confirm("Encerrar quiz? O ranking será exibido.")) {
-      setShowScore(true);
+    if (window.confirm("Encerrar quiz? O jogo será reiniciado.")) {
+      resetGame();
     }
   };
 
-  const restartGame = () => {
-    setGameStarted(false);
-    setTeamNames([""]);
-    setTeams([]);
-    setWaitingDifficulty(false);
-    setCurrentQuestion(null);
-    setShowQuestionScreen(false);
-    setShowPassTeamSelector(false);
-    setShowResponseScreen(false);
-    setShowScore(false);
-    setSelectedOption(null);
-    setQuestionLocked(false);
-    usedQuestions = { facil: [], medio: [], dificil: [] };
-  };
+  // ========== TELA DO VENCEDOR ==========
+  if (showWinnerScreen && winnerTeam) {
+    return (
+      <div className="quiz-container">
+        <div className="quiz-card winner-card">
+          <div className="winner-screen">
+            <div className="winner-icon">🏆</div>
+            <h1 className="winner-title">VENCEDOR!</h1>
+            <h2 className="winner-team">{winnerTeam.name}</h2>
+            <p className="winner-score">Chegou à casa {winnerTeam.house} de {TOTAL_HOUSES}</p>
+            <button onClick={resetGame} className="restart-button">Jogar Novamente</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-  const sortedTeams = [...teams].sort((a, b) => b.score - a.score);
-
-  // ========== TELAS ==========
+  // ========== TELA INICIAL ==========
   if (!gameStarted) {
     return (
       <div className="start-container">
         <div className="start-card">
           <h1 className="start-title">Nome dos Times</h1>
+          <p className="subtitle">Tabuleiro de {TOTAL_HOUSES} casas</p>
           {teamNames.map((name, idx) => (
             <div key={idx} className="team-input-group">
               <input
@@ -266,23 +320,7 @@ export default function Quiz() {
     );
   }
 
-  if (showScore) {
-    return (
-      <div className="quiz-container">
-        <div className="quiz-card">
-          <h2 className="ranking-title">🏆 Ranking Final</h2>
-          {sortedTeams.map((team, idx) => (
-            <div key={team.id} className="ranking-item">
-              <span>#{idx + 1} - {team.name}</span>
-              <span>{team.score} pts</span>
-            </div>
-          ))}
-          <button onClick={restartGame} className="restart-button">Jogar Novamente</button>
-        </div>
-      </div>
-    );
-  }
-
+  // ========== TELA DO MEDIADOR ==========
   if (waitingDifficulty) {
     const currentTurnTeam = teams[turnIndex];
     return (
@@ -294,10 +332,34 @@ export default function Quiz() {
               <p style={{ color: "#ccc", fontSize: "1.1rem" }}>📢 Vez do time:</p>
               <h2 style={{ color: "#FF8C00", margin: "0", fontSize: "2rem" }}>{currentTurnTeam?.name}</h2>
               <p style={{ color: "#ccc", fontSize: "0.9rem", marginTop: "0.25rem" }}>
-                (pontuação: {currentTurnTeam?.score} pts)
+                Casa: {currentTurnTeam?.house}/{FINAL_HOUSE} | Acertos: {currentTurnTeam?.score}
               </p>
             </div>
-            <p style={{ color: "#ccc", marginBottom: "2rem" }}>Escolha a dificuldade da próxima pergunta:</p>
+            
+            {/* TABULEIRO VISUAL */}
+            <div className="board-container">
+              <div className="board-track">
+                {Array.from({ length: TOTAL_HOUSES }).map((_, idx) => {
+                  const teamsOnHouse = teams.filter(t => t.house === idx);
+                  return (
+                    <div key={idx} className={`board-cell ${idx === FINAL_HOUSE ? 'final-cell' : ''}`}>
+                      <div className="cell-number">{idx + 1}</div>
+                      {teamsOnHouse.length > 0 && (
+                        <div className="cell-teams">
+                          {teamsOnHouse.map(t => (
+                            <span key={t.id} className="team-marker" style={{ backgroundColor: getTeamColor(t.id) }}>
+                              {t.name[0]}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <p style={{ color: "#ccc", marginBottom: "2rem", marginTop: "1.5rem" }}>Escolha a dificuldade da próxima pergunta:</p>
             <div className="difficulty-selector">
               <button className="difficulty-button" onClick={() => chooseDifficulty("facil")} style={{ backgroundColor: "#22c55e" }}>Fácil</button>
               <button className="difficulty-button" onClick={() => chooseDifficulty("medio")} style={{ backgroundColor: "#eab308" }}>Médio</button>
@@ -319,7 +381,7 @@ export default function Quiz() {
           <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginTop: "1rem" }}>
             {teams.filter(t => t.id !== teams[currentTeamIndex].id).map(team => (
               <button key={team.id} onClick={() => passToTeam(team.id)} className="team-select-button">
-                {team.name} (pontos: {team.score})
+                {team.name} (casa: {team.house}/{FINAL_HOUSE})
               </button>
             ))}
           </div>
@@ -330,14 +392,22 @@ export default function Quiz() {
 
   if (showResponseScreen && currentQuestion) {
     const correctAnswerText = currentQuestion.alternativas[currentQuestion.correta];
+    const currentTeam = teams[currentTeamIndex];
     return (
       <div className="quiz-container">
         <div className="quiz-card">
           <div className="response-screen">
             <div className="response-icon">{lastAnswerCorrect ? "🎉" : "❌"}</div>
             <div className="response-title">{lastAnswerCorrect ? "Correto!" : "Errado!"}</div>
-            {!lastAnswerCorrect && (
-              <div className="response-message">Resposta correta: <strong>{correctAnswerText}</strong></div>
+            {lastAnswerCorrect ? (
+              <div className="response-message">
+                {currentTeam.name} avançou para a casa {currentTeam.house}/{FINAL_HOUSE}!
+              </div>
+            ) : (
+              <div className="response-message">
+                Resposta correta: <strong>{correctAnswerText}</strong><br/>
+                {currentTeam.name} continua na casa {currentTeam.house}/{FINAL_HOUSE}
+              </div>
             )}
             <button onClick={goToNextQuestion} className="continue-button">Próxima Pergunta →</button>
           </div>
@@ -358,11 +428,10 @@ export default function Quiz() {
           <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
             <h3 style={{ color: "#FF8C00", margin: 0 }}>Vez do time:</h3>
             <h2 style={{ color: "white", margin: "0.25rem 0" }}>{currentTeam.name}</h2>
+            <p style={{ color: "#ccc", fontSize: "0.9rem" }}>Casa atual: {currentTeam.house}/{FINAL_HOUSE}</p>
           </div>
           
-          {/* CONTAINER DA PERGUNTA COM SUPORTE A IMAGEM */}
           <div className="question-container">
-            {/* IMAGEM - aparece acima do enunciado se existir */}
             {currentQuestion.imagem && currentQuestion.imagem.trim() !== "" && (
               <div className="question-image">
                 <img 
@@ -373,7 +442,6 @@ export default function Quiz() {
                 />
               </div>
             )}
-            {/* ENUNCIADO */}
             <h3 className="question-text">{currentQuestion.enunciado}</h3>
           </div>
 
@@ -401,4 +469,10 @@ export default function Quiz() {
   }
 
   return null;
+}
+
+// Função auxiliar para cores dos times no tabuleiro
+function getTeamColor(teamId) {
+  const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7B731'];
+  return colors[teamId % colors.length];
 }
