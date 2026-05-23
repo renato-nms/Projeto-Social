@@ -2,8 +2,18 @@
 import { useState } from "react";
 import "./Quiz.css";
 
+// Importação das imagens (ajuste o caminho se sua pasta assets estiver em outro local)
+import img1d4facil from "./assets/1d4facil.png";
+import img3d4facil from "./assets/3d4facil.png";
+import img4d4facil from "./assets/4d4facil.png";
+import img5d4facil from "./assets/5d4facil.png";
+import img6d4facil from "./assets/6d4facil.png";
+import img7d4facil from "./assets/7d4facil.png";
+import img8d4facil from "./assets/8d4facil.png";
+import img9d4facil from "./assets/9d4facil.png";
+
 // --------------------------------------------------------------
-// BANCO DE PERGUNTAS (textos completos, como você tinha)
+// BANCO DE PERGUNTAS
 // --------------------------------------------------------------
 const questionsBank = {
   facil: [
@@ -39,62 +49,194 @@ const questionsBank = {
         "Héracles (Hércules) – semideus filho de Zeus, famoso por sua força e pelos doze trabalhos."
       ],
       correta: 3
+    },
+    // Novas questões com imagens (D4)
+    {
+      id: 4,
+      imagem: img1d4facil,
+      enunciado: "Nesse texto, os animais correram porque:",
+      alternativas: [
+        "achavam que era hora de comer.",
+        "foram chamados pelo menino.",
+        "ouviram o alerta de perigo.",
+        "queriam ficar perto do menino."
+      ],
+      correta: 0
+    },
+    {
+      id: 5,
+      imagem: img3d4facil,
+      enunciado: "A tirinha de Armandinho faz uma crítica sobre:",
+      alternativas: [
+        "o fato de haver diferentes pontos de vista.",
+        "a vontade de conhecer novos pontos de vista.",
+        "a não aceitação de diferentes pontos de vista.",
+        "o fato de todos terem o mesmo ponto de vista."
+      ],
+      correta: 2
+    },
+    {
+      id: 6,
+      imagem: img4d4facil,
+      enunciado: "Na charge, a expressão facial do homem na cama demonstra que ele está:",
+      alternativas: [
+        "doente.",
+        "cansado.",
+        "aborrecido.",
+        "apavorado/desesperado."
+      ],
+      correta: 3
+    },
+    {
+      id: 7,
+      imagem: img5d4facil,
+      enunciado: "De acordo com esse texto, constata-se que o personagem pratica atividades:",
+      alternativas: [
+        "na academia.",
+        "nas olimpíadas.",
+        "no videogame.",
+        "nos finais de semana."
+      ],
+      correta: 2
+    },
+    {
+      id: 8,
+      imagem: img6d4facil,
+      enunciado: "De acordo com o último quadrinho desse texto, o menino:",
+      alternativas: [
+        "achou ruim o sabor do chá.",
+        "piorou bruscamente do resfriado.",
+        "sentiu um calafrio de frio.",
+        "tomou todo o chá com alegria."
+      ],
+      correta: 0
+    },
+    {
+      id: 9,
+      imagem: img7d4facil,
+      enunciado: "No último quadrinho desse texto, constata-se que as meninas:",
+      alternativas: [
+        "decidiram brincar no parque.",
+        "fugiram com medo da aranha.",
+        "procuraram outro lugar para lanchar.",
+        "terminaram de comer o lanche."
+      ],
+      correta: 1
+    },
+    {
+      id: 10,
+      imagem: img8d4facil,
+      enunciado: "Os textos acima são exemplos de linguagem:",
+      alternativas: [
+        "verbal.",
+        "não verbal.",
+        "mista.",
+        "formal."
+      ],
+      correta: 1
+    },
+    {
+      id: 11,
+      imagem: img9d4facil,
+      enunciado: "Na imagem, é possível observar três personagens em um bote furado. Qual provérbio melhor se relaciona com a mensagem trazida pelo texto?",
+      alternativas: [
+        "Não há bem que sempre dure, nem mal que nunca se acabe.",
+        "Quem comprar o que não precisa, venderá o que precisa.",
+        "Se sua casa pegar fogo, aproveite para se aquecer.",
+        "O problema de um afeta a todos quando estão no mesmo barco."
+      ],
+      correta: 3
     }
   ],
   medio: [
     {
       id: 1,
-      enunciado: "Qual físico teórico desenvolveu a teoria da relatividade geral, revolucionando a compreensão da gravidade, do espaço-tempo e prevendo fenômenos como buracos negros e a curvatura da luz?",
+      enunciado: "Leia o texto: 'Cerca de 70,5 milhões de brasileiros não possuem acesso à internet. Ampliar o acesso deve ser a maior prioridade dos governantes.' Qual trecho expressa a OPINIÃO do autor?",
       alternativas: [
-        "Isaac Newton – formulou a lei da gravitação universal e as três leis do movimento.",
-        "Niels Bohr – contribuiu para o modelo atômico e a mecânica quântica.",
-        "Albert Einstein – autor da relatividade geral e especial, ganhador do Nobel pelo efeito fotoelétrico.",
-        "Galileu Galilei – pai da astronomia moderna, defendeu o heliocentrismo."
+        "Cerca de 70,5 milhões de brasileiros...",
+        "...não possuem acesso à internet.",
+        "Ampliar o acesso deve ser a maior prioridade...",
+        "Brasileiros usam a internet."
       ],
       correta: 2
     },
     {
       id: 2,
-      enunciado: "Na literatura brasileira, qual movimento literário do século XIX tinha como principais características o nacionalismo, o indianismo e a exaltação da natureza, sendo seus maiores expoentes José de Alencar e Gonçalves Dias?",
+      enunciado: "Leia o texto: 'O cachorro é descendente do lobo. Ele é o melhor amigo que um homem pode ter.' Onde se percebe um julgamento de valor (uma opinião)?",
       alternativas: [
-        "Barroco – marcado por dualismo, conflitos religiosos e autores como Gregório de Matos.",
-        "Romantismo – primeira fase com forte apelo à construção da identidade nacional e figura do índio.",
-        "Realismo – crítica social e objetivismo, com Machado de Assis como principal nome.",
-        "Modernismo – ruptura com o passado e valorização do cotidiano, a partir da Semana de 1922."
+        "O cachorro é descendente do lobo.",
+        "Ele é o melhor amigo que um homem pode ter.",
+        "O cachorro e o lobo são parentes.",
+        "O homem tem um cachorro."
       ],
       correta: 1
+    },
+    {
+      id: 3,
+      enunciado: "Leia o texto: 'Aproveitando a baixa de preços, cada vez iam mais clientes às oficinas. Mas aquilo era um disparate, tanto maior quanto, descendo os preços, de dia para dia, chegou uma altura em que os bancos e as cadeiras eram dados.' A palavra destacada 'disparate' tem sentido de:",
+      alternativas: [
+        "absurdo.",
+        "bobagem.",
+        "brincadeira.",
+        "problema."
+      ],
+      correta: 0
     }
   ],
   dificil: [
     {
       id: 1,
-      enunciado: "Qual evento histórico, ocorrido em 1969, representou a primeira vez que um ser humano pisou na Lua, sendo parte da corrida espacial entre Estados Unidos e União Soviética durante a Guerra Fria, e contou com os astronautas Neil Armstrong, Buzz Aldrin e Michael Collins?",
+      enunciado: "Leia o trecho: 'Nossa geração toda precisa de psicólogo, porque a geração anterior também precisava, mas achava frescura.' Na oração, o emprego do conectivo 'porque' indica:",
       alternativas: [
-        "Apollo 11 – missão espacial norte-americana que levou os primeiros homens à superfície lunar.",
-        "Sputnik 1 – primeiro satélite artificial lançado pela União Soviética em 1957.",
-        "Vostok 1 – missão que levou Yuri Gagarin a ser o primeiro humano no espaço, em 1961.",
-        "Apollo 13 – missão que sofreu uma explosão e retornou à Terra sem pousar na Lua."
+        "causa.",
+        "tempo.",
+        "conclusão.",
+        "explicação."
       ],
-      correta: 0
+      correta: 3
+    },
+    {
+      id: 2,
+      enunciado: "No trecho: 'Os jovens têm impulsos de rebeldia quando começam a formar seus próprios valores. Todavia, com o passar dos anos, compreendem que os pais tinham razão...' A conjunção 'todavia' se contrapõe a qual ideia?",
+      alternativas: [
+        "À ideia de que nem sempre é fácil o entendimento entre os membros da família.",
+        "À ideia de que os pais devem facilitar esse relacionamento.",
+        "À ideia de que os jovens têm impulsos de rebeldia quando começam a formar seus próprios valores.",
+        "À ideia de que é compreensível e natural que jovens tenham visões diferentes."
+      ],
+      correta: 2
+    },
+    {
+      id: 3,
+      enunciado: "Expressões textuais como 'primeiramente', 'em seguida', 'por fim' e 'finalmente' são recursos coesivos que têm como função principal:",
+      alternativas: [
+        "opor ideias ao longo do texto.",
+        "indicar conclusão ou consequência de uma ideia apresentada.",
+        "organizar sequencialmente as ideias e marcar a progressão textual.",
+        "explicar um conceito apresentado anteriormente no texto."
+      ],
+      correta: 2
     }
   ]
 };
 
 // Controle de perguntas já usadas
 let usedQuestions = { facil: [], medio: [], dificil: [] };
+
 const getRandomQuestion = (difficulty) => {
   const available = questionsBank[difficulty];
   if (!available || available.length === 0) return null;
+
   let unused = available.filter(q => !usedQuestions[difficulty].includes(q.id));
-  if (unused.length === 0) {
-    usedQuestions[difficulty] = [];
-    unused = [...available];
-  }
+  if (unused.length === 0) return null;
+
   const randomIndex = Math.floor(Math.random() * unused.length);
   const selected = unused[randomIndex];
   usedQuestions[difficulty].push(selected.id);
   return selected;
 };
+
+const totalQuestions = Object.values(questionsBank).reduce((acc, level) => acc + level.length, 0);
 
 export default function Quiz() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -107,11 +249,9 @@ export default function Quiz() {
   const [showPassTeamSelector, setShowPassTeamSelector] = useState(false);
   const [showResponseScreen, setShowResponseScreen] = useState(false);
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState(false);
-  const [showScore, setShowScore] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [questionLocked, setQuestionLocked] = useState(false);
 
-  // Times
   const addTeam = () => setTeamNames([...teamNames, ""]);
   const handleTeamNameChange = (idx, val) => {
     const updated = [...teamNames];
@@ -134,7 +274,6 @@ export default function Quiz() {
     setShowQuestionScreen(false);
     setShowPassTeamSelector(false);
     setShowResponseScreen(false);
-    setShowScore(false);
     setSelectedOption(null);
     setQuestionLocked(false);
     usedQuestions = { facil: [], medio: [], dificil: [] };
@@ -143,8 +282,8 @@ export default function Quiz() {
   const chooseDifficulty = (difficulty) => {
     const question = getRandomQuestion(difficulty);
     if (!question) {
-      alert("Nenhuma pergunta disponível para essa dificuldade!");
-      return;
+      alert(`Não há mais perguntas disponíveis na dificuldade ${difficulty === 'facil' ? 'Fácil' : difficulty === 'medio' ? 'Médio' : 'Difícil'}! Escolha outra.`);
+      return; 
     }
     setCurrentQuestion(question);
     setWaitingDifficulty(false);
@@ -190,6 +329,14 @@ export default function Quiz() {
   };
 
   const goToNextQuestion = () => {
+    const totalUsed = Object.values(usedQuestions).flat().length;
+    if (totalUsed >= totalQuestions) {
+      const sorted = [...teams].sort((a, b) => b.score - a.score);
+      const winner = sorted[0];
+      alert(`🏆 Fim do jogo! Todas as perguntas foram respondidas.\nVencedor: ${winner.name} com ${winner.score} ponto(s)!`);
+      restartGame();
+      return;
+    }
     setWaitingDifficulty(true);
     setCurrentQuestion(null);
     setShowQuestionScreen(false);
@@ -200,22 +347,8 @@ export default function Quiz() {
   };
 
   const handleFinishGame = () => {
-    if (window.confirm("Encerrar quiz?")) setShowScore(true);
-  };
-
-  const handleExit = () => {
-    if (window.confirm("Sair? Perderá progresso.")) {
-      setGameStarted(false);
-      setTeamNames([""]);
-      setTeams([]);
-      setWaitingDifficulty(false);
-      setCurrentQuestion(null);
-      setShowQuestionScreen(false);
-      setShowPassTeamSelector(false);
-      setShowResponseScreen(false);
-      setShowScore(false);
-      setSelectedOption(null);
-      setQuestionLocked(false);
+    if (window.confirm("Encerrar quiz?")) {
+      restartGame();
     }
   };
 
@@ -228,15 +361,11 @@ export default function Quiz() {
     setShowQuestionScreen(false);
     setShowPassTeamSelector(false);
     setShowResponseScreen(false);
-    setShowScore(false);
     setSelectedOption(null);
     setQuestionLocked(false);
     usedQuestions = { facil: [], medio: [], dificil: [] };
   };
 
-  const sortedTeams = [...teams].sort((a, b) => b.score - a.score);
-
-  // Telas
   if (!gameStarted) {
     return (
       <div className="start-container">
@@ -252,29 +381,11 @@ export default function Quiz() {
     );
   }
 
-  if (showScore) {
-    return (
-      <div className="quiz-container">
-        <div className="quiz-card">
-          <h2 className="ranking-title">🏆 Ranking Final</h2>
-          {sortedTeams.map((team, idx) => (
-            <div key={team.id} className="ranking-item">
-              <span>#{idx + 1} - {team.name}</span>
-              <span>{team.score} pts</span>
-            </div>
-          ))}
-          <button onClick={restartGame} className="restart-button">Jogar Novamente</button>
-        </div>
-      </div>
-    );
-  }
-
   if (waitingDifficulty) {
     return (
       <div className="quiz-container">
         <div className="quiz-card">
           <div style={{ textAlign: "center" }}>
-            <button onClick={handleExit} className="back-button" style={{ float: "left" }}>← Sair</button>
             <h1 style={{ color: "white", marginBottom: "0.5rem" }}>🎮 Mediador</h1>
             <p style={{ color: "#ccc", marginBottom: "2rem" }}>Escolha a dificuldade da próxima pergunta:</p>
             <div className="difficulty-selector">
@@ -312,7 +423,6 @@ export default function Quiz() {
     return (
       <div className="quiz-container">
         <div className="quiz-card">
-          <button onClick={handleExit} className="back-button" style={{ float: "left" }}>← Sair</button>
           <div className="response-screen">
             <div className="response-icon">{lastAnswerCorrect ? "🎉" : "❌"}</div>
             <div className="response-title">{lastAnswerCorrect ? "Correto!" : "Errado!"}</div>
@@ -331,15 +441,28 @@ export default function Quiz() {
     return (
       <div className="quiz-container">
         <div className="quiz-card">
-          <button onClick={handleExit} className="back-button" style={{ float: "left" }}>← Sair</button>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <button onClick={handleFinishGame} className="finish-button">Encerrar Quiz</button>
           </div>
+          
           <div style={{ textAlign: "center", marginBottom: "1rem" }}>
             <h3 style={{ color: "#FF8C00" }}>Vez do time:</h3>
             <h2 style={{ color: "white" }}>{currentTeam.name}</h2>
           </div>
+          
+          {/* Lógica de renderização condicional da Imagem */}
+          {currentQuestion.imagem && (
+            <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+              <img 
+                src={currentQuestion.imagem} 
+                alt="Imagem da questão" 
+                style={{ maxWidth: "100%", maxHeight: "300px", borderRadius: "8px", border: "2px solid #334155" }} 
+              />
+            </div>
+          )}
+
           <h3 style={{ color: "white", textAlign: "center", marginBottom: "1rem" }}>{currentQuestion.enunciado}</h3>
+          
           <div className="options-list">
             {currentQuestion.alternativas.map((alt, idx) => {
               const letra = String.fromCharCode(65 + idx);
@@ -354,6 +477,7 @@ export default function Quiz() {
               );
             })}
           </div>
+
           <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
             <button onClick={confirmAnswer} disabled={selectedOption === null} className="confirm-button">Responder</button>
             <button onClick={openPassSelector} className="pass-button">Passar a vez</button>
