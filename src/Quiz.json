@@ -1,0 +1,1071 @@
+
+import img11facil from "./assets/11facil.png";
+import img12medio from "./assets/12medio.png";
+import img13facil from "./assets/13facil.png";
+import img16facil from "./assets/16facil.png";
+import img17facil from "./assets/17facil.png";
+// COM "d"
+import img1d4facil from "./assets/1d4facil.png";
+import img1facild4 from "./assets/1facild4.png";
+import img2d4facil from "./assets/2d4facil.png";
+import img3d4facil from "./assets/3d4facil.png";
+import img4d4facil from "./assets/4d4facil.png";
+import img5d4facil from "./assets/5d4facil.png";
+import img6d4facil from "./assets/6d4facil.png";
+import img7d4facil from "./assets/7d4facil.png";
+import img8d4facil from "./assets/8d4facil.png";
+import img9d4facil from "./assets/9d4facil.png";
+import img10d4facil from "./assets/10d4facil.png";
+import img11d4facil from "./assets/11d4facil.png";
+import img12d4facil from "./assets/12d4facil.png";
+import img13d4facil from "./assets/13d4facil.png";
+import img15d4facil from "./assets/15d4facil.png";
+import img16d4facil from "./assets/16d4facil.png";
+import img17d4facil from "./assets/17d4facil.png";
+import img18d4facil from "./assets/18d4facil.png";
+import img19d4facil from "./assets/19d4facil.png";
+import img20d4facil from "./assets/20d4facil.png";
+import img21d4facil from "./assets/21d4facil.png";
+import img22d4facil from "./assets/22d4facil.png";
+import img23d4facil from "./assets/23d4facil.png";
+import img24d4facil from "./assets/24d4facil.png";
+import img25d4facil from "./assets/25d4facil.png";
+
+// --------------------------------------------------------------
+// BANCO DE PERGUNTAS
+// --------------------------------------------------------------
+const questionsBank = {
+  facil: [
+    //D1 Localizar informações explícitas em um texto.
+    {
+      id: 1,
+      enunciado: "Leia o texto: 'Por que micro-organismos são importantes para as plantas? [...] O nitrogênio é um gás que os vegetais não conseguem captar sozinhos. As bactérias, por sua vez, captam o nitrogênio do ar, o fixam no solo, tornando-o acessível às raízes das plantas.' De acordo com esse texto, o nitrogênio é um:",
+      alternativas: [
+        "aminoácido.",
+        "gás.",
+        "micro-organismo.",
+        "vegetal."
+      ],
+      correta: 1
+    },
+    {
+      id: 2,
+      enunciado: "Leia o texto: 'Outro pintor, Jean-Léon Gérome, que registrou a invasão francesa ao Egito, mostra o general contemplando as pirâmides sobre um cavalo marrom. Na campanha da Rússia, Napoleão usou uma mula branca.' De acordo com esse texto, na pintura de Jean-Léon Gérome, Napoleão Bonaparte montava:",
+      alternativas: [
+        "um cavalo marrom.",
+        "um corcel branco.",
+        "uma mula branca.",
+        "uma mula castanha."
+      ],
+      correta: 0
+    },
+    {
+      id: 3,
+      enunciado: "Leia o texto: 'Ele me contou que as meias duraram muitos anos e em momento algum esqueceu o meu gesto. Às vezes, uma atitude tão simples faz toda a diferença na vida de alguém.' No final desse texto, o rapaz demonstrou ser:",
+      alternativas: [
+        "agradecido.",
+        "debochado.",
+        "divertido.",
+        "orgulhoso."
+      ],
+      correta: 0
+    },
+    {
+      id: 4,
+      enunciado: "Leia o texto: 'A máfia dos medicamentos falsos é mais cruel do que as quadrilhas de narcotraficantes.[...] É um dos piores crimes que se podem cometer.' Segundo a autora, 'um dos piores crimes que se podem cometer' é:",
+      alternativas: [
+        "a venda de narcóticos.",
+        "a falsificação dos remédios.",
+        "a receita de remédios falsos.",
+        "a venda abusiva de remédios."
+      ],
+      correta: 1
+    },
+    {
+      id: 5,
+      enunciado: "Leia o texto: 'Conheça seis desculpas entre as mais usadas [por adolescentes]. Uma sugestão: evite-as. Os pais não acreditam.' De acordo com o texto, os pais não acreditam em:",
+      alternativas: [
+        "adolescentes.",
+        "psicólogos.",
+        "pesquisas.",
+        "desculpas."
+      ],
+      correta: 3
+    },
+    {
+      id: 6,
+      enunciado: "Leia o texto: 'Somos alunos do Colégio Tomé de Souza e temos interesse em assuntos relacionados a aspectos históricos de nosso país, principalmente os relacionados ao cotidiano de nossa História, como era o dia a dia das pessoas, como eram as escolas, a relação entre pais e filhos etc.' O tema de interesse principal dos alunos é:",
+      alternativas: [
+        "cotidiano.",
+        "escola.",
+        "História do Brasil.",
+        "relação entre pais e filhos."
+      ],
+      correta: 0
+    },
+    {
+      id: 7,
+      enunciado: "Leia o texto: 'Caipora - Seus pés voltados para trás servem para despistar os caçadores, deixando-os sempre a seguir rastros falsos.' De acordo com esse texto, os pés voltados para trás da Caipora servem para:",
+      alternativas: [
+        "atrair suas vítimas.",
+        "despistar caçadores.",
+        "montar um porco do mato.",
+        "proteger as matas."
+      ],
+      correta: 1
+    },
+    {
+      id: 8,
+      enunciado: "Leia o texto: 'O primeiro automóvel circulava. Era uma coisa inesperada, que andava por si, como se fosse um trem, mas sem locomotiva. Nada lembrava dos bondinhos a burro que rolavam barulhentos pelas ruas.' O acontecimento que deixou os moradores da Rua do Sol agitados foi:",
+      alternativas: [
+        "a circulação do primeiro automóvel nas ruas da cidade.",
+        "a confraternização dos pais e das crianças nas ruas barulhentas.",
+        "a atitude das crianças frente aos trens barulhentos.",
+        "a lembrança do barulho dos carros nos trilhos."
+      ],
+      correta: 0
+    },
+    {
+      id: 9,
+      enunciado: "Leia o texto: 'Zhang se refere a uma mortandade de 40% da população de pandas, naquele ano, devido a uma praga que devastou as florestas de bambu.' A mortandade de 40% da população de pandas em 1983 ocorreu por causa:",
+      alternativas: [
+        "do terremoto na província de Sichuan, que matou 70 mil pessoas.",
+        "do grande impacto destrutivo do terremoto ocorrido naquela época.",
+        "da praga que na época devastou as florestas de bambu.",
+        "da alimentação dos pandas no inverno continuar a ser bambu."
+      ],
+      correta: 2
+    },
+    {
+      id: 10,
+      enunciado: "Leia o texto: 'A maioria dos 4 milhões de kiwis (como o povo local é carinhosamente chamado), descendentes de europeus, vive num ambiente em que tudo funciona... E no quesito natureza, os cenários tiram o fôlego.' De acordo com o texto, é característica da Nova Zelândia:",
+      alternativas: [
+        "possuir a maioria dos habitantes descendentes de asiáticos.",
+        "ter belíssimas paisagens naturais.",
+        "situar-se a menos de mil quilômetros da Austrália.",
+        "apresentar muitos problemas de infraestrutura turística."
+      ],
+      correta: 1
+    },
+    {
+      id: 11,
+      enunciado: "Leia a tirinha onde Calvin procura sua jaqueta em todos os lugares e, ao encontrá-wrap no armário, diz: 'Oh, aqui está! Quem foi que colocou nesse armário estúpido?'. Pelo texto podemos perceber que Calvin:",
+      alternativas: [
+        "é um menino muito organizado e calmo.",
+        "guarda sua jaqueta dentro do armário.",
+        "procura tranquilamente por sua jaqueta.",
+        "acha estranho guardar as roupas no armário.",
+        imagem: img11facil
+      ],
+      correta: 3
+    },
+    {
+      id: 12,
+      enunciado: "Leia o texto: 'Se uma nave extraterrestre invadisse... diriam que neste planeta não habita uma civilização inteligente, tamanho é o grau de destruição dos recursos naturais. Essas são palavras de um renomado cientista...'. Segundo o texto, o cientista americano está preocupado com:",
+      alternativas: [
+        "a vida neste planeta / os recursos naturais.",
+        "a qualidade do espaço aéreo.",
+        "o que pensam os extraterrestres.",
+        "o seu prestígio no mundo."
+      ],
+      correta: 0
+    },
+    {
+      id: 13,
+      enunciado: "Leia as instruções: 'PRECAUÇÕES PARA USO DO DETERGENTE X8... Não reutilize a embalagem para outros fins.' De acordo com o texto, o detergente X8:",
+      alternativas: [
+        "protege a pele das crianças.",
+        "é benéfico para os olhos.",
+        "é saudável quando ingerido.",
+        "tem embalagem inadequada para outros fins.",
+        imagem: img13facil
+      ],
+      correta: 3
+    },
+    {
+      id: 14,
+      enunciado: "Leia o texto: 'Cajueiro - planta nativa do Brasil... Do suco de caju se prepara um refresco. Aproveita-se também a madeira, a casca com propriedades medicinais e o óleo. Contudo, o produto de maior valor é a amêndoa da semente.' O produto mais valioso que se obtém do cajueiro é:",
+      alternativas: [
+        "o refresco do suco.",
+        "a madeira da árvore.",
+        "o óleo lubrificante.",
+        "a amêndoa da semente."
+      ],
+      correta: 3
+    },
+    {
+      id: 15,
+      enunciado: "Leia o texto: 'Uma jovem desmaiou quando seu namorado se ajoelhou para pedir sua mão em casamento durante uma festa de aniversário surpresa...'. A jovem desmaiou, segundo a notícia, devido:",
+      alternativas: [
+        "ao susto dado pelo namorado.",
+        "à surpresa do pedido de casamento pelo namorado.",
+        "à falta de maturidade por parte dela.",
+        "ao mau jeito de pedir em casamento pelo namorado."
+      ],
+      correta: 1
+    },
+    {
+      id: 16,
+      enunciado: "Leia a placa: 'PINTAMOS CASAS A DOMICÍLIO'. Na placa o autor se precipitou informando um anúncio óbvio. Onde:",
+      alternativas: [
+        "pintura não se pode ser a domicílio.",
+        "domicílio é apenas na casa do pintor.",
+        "se vai fazer a pintura de uma casa, já é a domicílio.",
+        "há erro, que pintura não é a domicílio.",
+        imagem: img16facil
+      ],
+      correta: 2
+    },
+    {
+      id: 17,
+      enunciado: "Na charge de Natal, o Papai Noel diz: 'No Natal, sou o centro das atenções. Quem sou eu?', enquanto uma figura menor (o Menino Jesus) tenta chamar atenção. Após analisar a charge, é possível imaginar que, no Natal, o que parece ser mais importante é:",
+      alternativas: [
+        "visitar os amigos.",
+        "ajudar o próximo.",
+        "dar e receber presentes (simbolizado pelo Papai Noel).",
+        "fazer confraternização com os amigos.",
+        imagem: img17facil
+      ],
+      correta: 2
+    },
+    {
+      id: 18,
+      enunciado: "Leia o texto: 'A iniciativa foi lançada no posto Socape, no bairro Paulicéia, de onde foram coletados cerca de 100 vasilhames...'. De acordo com o texto, o lançamento do 'Programa Jogue Limpo' foi realizado:",
+      alternativas: [
+        "na cidade do Rio de Janeiro.",
+        "no posto Socape.",
+        "no bairro Paulicéia.",
+        "na cidade de Duque de Caxias."
+      ],
+      correta: 1
+    },
+    {
+      id: 19,
+      enunciado: "Leia o texto: 'Oscar resolveu levar na caminhoneta um pouco de esterco do sítio, que era no interior de Minas, para o jardim de sua casa na capital.' O esterco que Oscar levava na caminhoneta era de:",
+      alternativas: [
+        "seu jardim na capital.",
+        "seu sítio no interior.",
+        "sua casa na capital.",
+        "sua casa no interior."
+      ],
+      correta: 1
+    },
+    {
+      id: 20,
+      enunciado: "Leia o texto: 'Ele mesmo terá dúvidas se gosta mais de Quim Mentira, um contador de mentiras como o próprio nome diz... como de seu Zeca, farmacêutico e empalhador de animais.' Os personagens Quim e Zeca são, respectivamente:",
+      alternativas: [
+        "empalhador de animais e farmacêutico.",
+        "farmacêutico e vendedor de bilhete.",
+        "mentiroso e empalhador de animais.",
+        "vendedor de bilhete e professor."
+      ],
+      correta: 2
+    },
+    {
+      id: 21,
+      enunciado: "Leia o texto: 'Quanto mais água ingerimos, mais diluímos esses pigmentos e, consequentemente, mais claro fica o xixi. Por isso, urina clara é quase sempre sinal de que estamos bem hidratados'. De acordo com o texto, a urina clara quase sempre sinaliza que estamos:",
+      alternativas: [
+        "infectados.",
+        "hidratados.",
+        "desidratados.",
+        "pigmentados."
+      ],
+      correta: 1
+    },
+    {
+      id: 22,
+      enunciado: "Leia o texto: 'Diz que um leão enorme ia andando chateado, não muito rei dos animais, porque tinha acabado de brigar com a mulher e esta lhe dissera poucas e boas.' O leão andava chateado porque:",
+      alternativas: [
+        "brigou com o rato.",
+        "brigou com a sua mulher.",
+        "encontrou uma lesma nojenta.",
+        "encontrou um rato insignificante."
+      ],
+      correta: 1
+    },
+    {
+      id: 23,
+      enunciado: "Leia o texto: 'Existe vida fora da Terra? Até onde se sabe, não. Não existe nenhuma evidência oficial, já que todos os casos registrados são apenas suposições.' Segundo o texto, existe vida fora da Terra?",
+      alternativas: [
+        "Há vida fora da Terra, mas ainda não foram encontrados seres como do nosso planeta.",
+        "Há vida fora da Terra, mas não inteligente como a do nosso planeta.",
+        "Não há nenhuma evidência oficial, apenas algumas suposições de vida fora da Terra.",
+        "Os satélites encontraram planetas parecidos com o nosso."
+      ],
+      correta: 2
+    },
+    {
+      id: 24,
+      enunciado: "Leia o texto: 'Atualmente, são cerca de 6 mil línguas, sem contar os dialetos, que tiveram origens diferentes. Por esse motivo, é difícil existir uma expressão que se repita em todos os cantos do mundo...'. A palavra 'banana' não é igual em todos os idiomas porque:",
+      alternativas: [
+        "é uma fruta brasileira e, por isso, não é conhecida no mundo todo.",
+        "os objetos recebem o nome de acordo com a cultura e origens diferentes das línguas.",
+        "não existe uma palavra igual em todas as línguas.",
+        "somente os inventos recentes têm o mesmo nome em vários idiomas."
+      ],
+      correta: 1
+    },
+    {
+      id: 25,
+      enunciado: "Leia o texto: 'Segundo uma pesquisa... 61% das pessoas desligam os celulares no teatro; 64% no cinema; 60% na igreja/templo e 58% nas reuniões de trabalho.' Considerando os percentuais indicados, pode-se concluir que:",
+      alternativas: [
+        "A maioria das pessoas, em qualquer ambiente social, mantém sempre os celulares desligados.",
+        "A maioria das pessoas, em qualquer ambiente social, mantém sempre os seus celulares ligados.",
+        "A maioria das pessoas só mantém o celular desligado em ambientes sociais como no teatro, no cinema, na igreja e nas reuniões.",
+        "A maioria das pessoas mantém o celular desligado na 'balada', quando dormem e tomam banho."
+      ],
+      correta: 2
+    },
+    //FINAL DA D1
+    {
+      //D4 - Interpretar textos não verbais e textos que articulam elementos verbais e não verbais
+      id: 26,
+      imagem: img1d4facil,
+      enunciado: "Nesse texto, os animais correram porque:",
+      alternativas: [
+        "achavam que era hora de comer.",
+        "foram chamados pelo menino.",
+        "ouviram o alerta de perigo.",
+        "queriam ficar perto do menino."
+      ],
+      correta: 2
+    },
+    {
+      id: 27,
+      imagem: img2d4facil,
+      enunciado: "A tirinha de Armandinho critica:",
+      alternativas: [
+        "o fato de haver diferentes pontos de vista.",
+        "a vontade de conhecer novos pontos de vista.",
+        "a não aceitação de diferentes pontos de vista.",
+        "o fato de todos terem o mesmo ponto de vista."
+      ],
+      correta: 2
+    },
+    {
+      id: 28,
+      imagem: img3d4facil,
+      enunciado: "No terceiro quadrinho da tirinha, o advérbio 'aqui' transmite a ideia de:",
+      alternativas: [
+        "lugar.",
+        "modo.",
+        "tempo.",
+        "dúvida."
+      ],
+      correta: 0
+    },
+    {
+      id: 29,
+      imagem: img4d4facil,
+      enunciado: "Na charge, a expressão facial do homem demonstra que ele está:",
+      alternativas: [
+        "doente.",
+        "cansado.",
+        "sonolento.",
+        "aborrecido."
+      ],
+      correta: 3
+    },
+    {
+      id: 30,
+      imagem: img5d4facil,
+      enunciado: "De acordo com esse texto, constata-se que o personagem pratica atividades:",
+      alternativas: [
+        "na academia.",
+        "nas olimpíadas.",
+        "no videogame.",
+        "nos finais de semana."
+      ],
+      correta: 2
+    },
+    {
+      id: 31,
+      imagem: img6d4facil,
+      enunciado: "De acordo com o último quadrinho desse texto, o menino:",
+      alternativas: [
+        "achou ruim o chá.",
+        "piorou do resfriado.",
+        "sentiu um calafrio.",
+        "tomou todo o chá."
+      ],
+      correta: 0
+    },
+    {
+      id: 32,
+      imagem: img7d4facil,
+      enunciado: "No último quadrinho desse texto, as meninas:",
+      alternativas: [
+        "decidiram brincar no parque.",
+        "fugiram com medo da aranha.",
+        "procuraram outro lugar para lanchar.",
+        "terminaram de comer o lanche."
+      ],
+      correta: 1
+    },
+    {
+      id: 33,
+      imagem: img8d4facil,
+      enunciado: "Os textos acima são exemplos de linguagem:",
+      alternativas: [
+        "verbal.",
+        "não verbal.",
+        "mista.",
+        "formal."
+      ],
+      correta: 1
+    },
+    {
+      id: 34,
+      imagem: img9d4facil,
+      enunciado: "Na imagem, é possível observar três personagens em um bote de madeira furado e com água invadindo a embarcação. Um dos personagens se recusa em contribuir com os demais. Analisando os aspectos da linguagem verbal e não verbal, qual dos provérbios abaixo melhor se relaciona com a mensagem trazida pelo texto?",
+      alternativas: [
+        "Não há bem que sempre dure, nem mal que nunca se acabe.",
+        "Quem comprar o que não precisa, venderá o que precisa.",
+        "Se sua casa pegar fogo, aproveite para se aquecer.",
+        "O problema de um afeta a todos quando estão no mesmo barco."
+      ],
+      correta: 3
+    },
+    //D4 PAROU NO 10
+  ],
+  medio: [
+    // D3 - Inferir o sentido de uma palavra ou expressão
+    {
+  id: 35,
+  enunciado: `Assim mesmo, a terra seca do verão não deixa de ser triste e até feia. Mas então, por fins de janeiro, começo de fevereiro, de repente, dá uma grande chuva, passa um dia e uma noite chovendo. E, na manhã seguinte, quando a gente se levanta, descobre um milagre. 
+O chão, as moitas, as árvores – está tudo coberto de verde! Os galhos secos se encheram de rebentos verdes, e a terra está feito um tapete cerrado de brotos verdes que o povo chama babugem.
+O sertão ressuscita, vestido de verde, e é a coisa mais linda do mundo.
+
+Nesse texto, "babugem" é o mesmo que:`,
+  alternativas: [
+    "cabra para dar leite às crianças.",
+    "mandioca para fazer farinha.",
+    "terra muito seca do verão.",
+    "terra coberta de brotos verdes."
+  ],
+  correta: 3
+},
+    {
+      id: 36,
+      enunciado: `Ele já estava alguns minutos atrasado. A namorada dele havia pedido que ele estivesse lá no relógio do shopping às oito horas em ponto porque a sessão começaria às oito e quinze. 
+O chefe dele pediu para que ele terminasse um serviço. Mesmo ele correndo para dar tempo de fazer tudo, ele acabou se atrasando na hora de sair do trabalho. Quando ele se deu conta, já eram sete e quarenta e cinco. Imediatamente ele se lembrou de que o estacionamento onde estava o carro dele fechava às dezenove e trinta da noite. Mesmo tendo perdido a hora, ele foi correndo para ver se dava tempo de ele ainda pegar o carro. Tarde demais!
+[...]
+
+Nesse texto, no trecho “Quando ele se deu conta,...” (2° parágrafo), a expressão destacada significa
+`,
+      alternativas: [
+        "fazer um cálculo.",
+        "pagar uma dívida.",
+        "perceber algo.",
+        "ter capacidade."
+      ],
+      correta: 2
+    },
+    {
+      id: 37,
+      enunciado: `O homem que fazia bancos enervou-se. Para poder vender bem o produto do seu trabalho, baixou para metade o preço dos bancos. Os bancos continuavam do mesmo tamanho, o preço é que era mais baixo.
+O concorrente ao lado fez o mesmo. Uma cadeira passou a ser tão barata que até dava vontade de rir.
+Aproveitando a baixa de preços, cada vez iam mais clientes às oficinas. Mas aquilo era um disparate, tanto maior quanto, descendo os preços, de dia para dia, chegou uma altura em que os bancos e as cadeiras eram dados.
+
+Nesse texto, no trecho “Mas aquilo era um disparate,...”, a palavra destacada tem
+sentido de
+`,
+      alternativas: [
+        "absurdo.",
+        "bobagem.",
+        "brincadeira.",
+        "problema."
+      ],
+      correta: 0
+    },
+    {
+      id: 38,
+      enunciado: `Querida Ângela,
+Depois que você foi embora para Ribeirão Preto, eu fiquei um tempão andando pela casa que nem barata tonta, achando tudo muito sem graça. Cada vez que eu pensava que ia ter que esperar as outras férias para brincar outra vez com você, me dava vontade de sair gritando de raiva
+
+No trecho “... que nem barata tonta,...” (2° parágrafo), a expressão destacada tem o sentido de
+`,
+      alternativas: [
+        "estar doente.",
+        "estar preocupado.",
+        "ficar cansado de rodar.",
+        "ficar sem saber o que fazer."
+      ],
+      correta: 3
+    },
+    {
+      id: 39,
+      enunciado: `Bucolismo é o termo utilizado para designar uma espécie de poesia pastoral, que descreve a qualidade ou o caráter dos costumes rurais, exaltando as belezas da vida campestre e da natureza, característica do Arcadismo. A base material do progresso consubstanciava-se nas cidades. Mudava o mundo, modernizavam-se as cidades e, consequentemente, redobravam os problemas dos conglomerados urbanos. A natureza acenava com a ordem nos prados e nos campos, os indivíduos resgatavam sentimentos corroídos pelo progresso. Os árcades buscavam uma vida simples, bucólica, longe do burburinho citadino. Eles tinham preferência pela vida nos campos, próxima à natureza.
+      
+      Nesse texto, no trecho “Os árcades buscavam uma vida simples, bucólica, longe do burburinho citadino.”, a palavra destacada tem o sentido de`,
+      alternativas: [
+        "agitação.",
+        "buzina.",
+        "cansaço.",
+        "sussurro."
+      ],
+      correta: 0
+    },
+    {
+      id: 40,
+      enunciado: `A origem das Revespécies
+
+Você já deve ter quebrado muito a cabeça pra responder àquela velha pergunta sobre o ovo e a galinha... Ora, convenhamos, desde que os cientistas anunciaram o parentesco entre a dita-cuja e os dinossauros, não é preciso nenhum Charles Darwin para matar essa charada...
+[...]
+
+No trecho “Você já deve ter quebrado muito a cabeça...” (1° parágrafo), a expressão em destaque
+significa
+`,
+      alternativas: [
+        "distrair.",
+        "ferir.",
+        "machucar.",
+        "pensar"
+      ],
+      correta: 3
+    },
+    {
+      id: 41,
+      enunciado: `Novo acordo ortográfico
+
+[...] 
+A ABL (Academia Brasileira de Letras) dispõe de um link para quem tiver dúvidas sobre o acordo, é só acessar www.academia.org.br e procurar o serviço “ABL Responde” à direita na página. No entanto, não há prazo para que as respostas sejam enviadas, já que cada pergunta passará por análise da comissão de lexicografia e lexicologia. 
+Visite esta seção e tire todas as suas dúvidas de maneira rápida e objetiva, proporcionada por uma linguagem simples e prazerosa. Fique sabendo de todas as mudanças ortográficas significativas para o Brasil! É só clicar e informar-se! 
+
+No trecho “É só clicar e informar-se!” (5° parágrafo), o verbo destacado pode ser substituído por`,
+      alternativas: [
+        "apertar.",
+        "acessar.",
+        "estalar.",
+        "fixar."
+      ],
+      correta: 1
+    },
+    {
+      id: 42,
+      enunciado: `Não estresse: você tem mais tempo do que pensa
+
+
+Um novo livro ensina a usá-lo bem – sem estresse nem ansiedade
+
+
+Se seu dia está curto demais para tantas tarefas, há uma solução simples, embora de aplicação difícil: mude-se para Vênus. Lá, o dia dura 243 vezes a duração do dia na Terra [...]. Imagine só. Daria para trabalhar, pegar um cineminha, encontrar os amigos, cuidar do cachorro, tirar uma soneca depois do almoço [...]. Deve ser por isso que nunca se viu um venusiano reclamar de estresse. Diante das 5 832 horas do dia de Vênus, é compreensível que os terráqueos se queixem tanto de seus dias de 24 horas. Segundo a escritora americana Laura Vanderkam, porém, reclamamos de barriga cheia. 
+[...]
+
+No Texto, no trecho “... porém, reclamamos de barriga cheia.” (1° parágrafo), a expressão em destaque tem o mesmo sentido de `,
+      alternativas: [
+        "com pressa.",
+        "com raiva.",
+        "sem fome.",
+        "sem motivo."
+      ],
+      correta: 3
+    },
+    {
+      id: 43,
+      enunciado: `Realidade com muita fantasia
+
+Nascido em 1937, o gaúcho Moacyr Scliar é um homem versátil: médico e escritor, igualmente atuante nas duas áreas. Dono de uma obra literária extensa, é ainda um biógrafo de mão cheia e colaborador assíduo de diversos jornais brasileiros. Seus livros para jovens e adultos são sucesso de público e de crítica e alguns já foram publicados no exterior. [...] 
+
+A expressão sublinhada em “é ainda um biógrafo de mão cheia” (1° parágrafo) significa que Scliar é
+`,
+      alternativas: [
+        "crítico e detalhista.",
+        "criativo e inconsequente.",
+        "habilidoso e talentoso.",
+        "inteligente e ultrapassado."
+      ],
+      correta: 2
+    },
+    {
+      id: 44,
+      enunciado: `O Sapo
+ 
+Era uma vez um lindo príncipe por quem todas as moças se apaixonavam. Por ele também se apaixonou a bruxa horrenda que o pediu em casamento. O príncipe nem ligou e a bruxa ficou muito brava. "Se não vai casar comigo não vai se casar com ninguém mais!" Olhou fundo nos olhos dele e disse: "Você vai virar um sapo!" Ao ouvir esta palavra o príncipe sentiu estremeção. Teve medo. Acreditou. E ele virou aquilo que a palavra feitiço tinha dito. Sapo. Virou um sapo. 
+
+No trecho "O príncipe NEM LIGOU e a bruxa ficou muito brava", a expressão destacada significa que:`,
+      alternativas: [
+        "não deu atenção ao pedido.",
+        "não entendeu o pedido.",
+        "não respondeu à bruxa.",
+        "não acreditou na bruxa."
+      ],
+      correta: 0
+    },
+    {
+      id: 45,
+      enunciado: `Duas Almas 
+
+Ó tu, que vens de longe, ó tu, que vens cansada, 
+entra, e sob este teto encontrarás carinho: 
+eu nunca fui amado, e vivo tão sozinho, 
+vives sozinha sempre, e nunca foste amada... 
+
+A neve anda a branquear, lividamente, a estrada,
+e a minha alcova tem a tepidez de um ninho. 
+Entra, ao menos até que as curvas do caminho 
+se banhem no esplendor nascente da alvorada.
+
+No verso "e a minha alcova tem a tepidez de um ninho" (v. 6), a expressão sublinhada dá sentido de um lugar:`,
+      alternativas: [
+        "aconchegante.",
+        "belo.",
+        "brando.",
+        "elegante."
+      ],
+      correta: 0
+    },
+    {
+      id: 46,
+      enunciado: "O uso da expressão 'finalmente', no texto sobre o quarto, indica que a arrumação foi:",
+      alternativas: [
+        "completa.",
+        "corrida.",
+        "demorada.",
+        "mal feita."
+        //precisa de imagem aqui
+      ],
+      correta: 2
+    },
+    {
+      id: 47,
+      enunciado: `O Pavão
+
+E considerei a glória de um pavão ostentando o esplendor de suas cores; é um luxo imperial. Mas andei lendo livros, e descobri que aquelas cores todas não existem na pena do pavão. Não há pigmentos. O que há são minúsculas bolhas d´água em que a luz se fragmenta, como em um prisma. O pavão é um arco-íris de plumas. 
+Eu considerei que este é o luxo do grande artista, atingir o máximo de matizes com o mínimo de elementos. De água e luz ele faz seu esplendor; seu grande mistério é a simplicidade. 
+
+No 2º parágrafo do texto, a expressão “ATINGIR O MÁXIMO DE MATIZES” significa o artista `,
+      alternativas: [
+        "fazer refletir as cores do arco-íris.",
+        "conseguir o maior número de tonalidades.",
+        "fazer com que o pavão ostente suas cores.",
+        "fragmentar a luz nas bolhas d'água."
+      ],
+      correta: 1
+    },
+    {
+      id: 48,
+      enunciado: "No texto sobre os operários, a palavra 'Verdejou' significa:",
+      alternativas: [
+        "a saudade dos trabalhadores.",
+        "o mar sem jangadas.",
+        "a parada da obra.",
+        "a chuva caindo no Nordeste."
+      ],
+      correta: 2
+    },
+    {
+      id: 49,
+      enunciado: `Pã, uma divindade rural
+
+De acordo com a mitologia greco-romana, Pã ou Pan é o deus dos bosques e dos campos, dos rebanhos e dos pastores. Morava em grutas, vagava pelas montanhas e pelos vales e divertia-se caçando ou dirigindo as danças das ninfas (divindades dos rios, dos bosques, das florestas e dos campos). Amante da música, inventou a avena, uma flauta, que tocava exemplarmente.
+Pã era temido por todos aqueles que tinham que atravessar as matas durante a noite, pois as trevas e a solidão desses lugares predispunham as pessoas a medos e superstições. Por isso, os pavores desprovidos de causas aparentes eram atribuídos a Pã e chamados de pânico.
+
+Em “(...) e a solidão desses lugares (...)”, a expressão em destaque” refere-se`,
+      alternativas: [
+        "montanhas.",
+        "vales.",
+        "bosques.",
+        "matas."
+      ],
+      correta: 3
+    },
+    {
+      id: 50,
+      enunciado: `A Casa da Moeda do Brasil
+
+Se o governo brasileiro precisa emitir dinheiro, você sabe quem se encarregará de produzi-lo? A Casa da Moeda do Brasil. Além de cédulas e moedas, ela confecciona selos e medalhas.
+A Casa da Moeda foi fundada em Salvador, em 1694, por ordem do governo português, para cunhar moedas com o ouro extraído da mineração. Inicialmente, foram cunhadas somente moedas de ouro e prata, mas depois se passou a produzir moedas de cobre para pequenos valores.
+[...] Ela compreende quatro repartições: o Departamento de células, o de Moedas e Medalhas, a Gráfica Geral e o Departamento de Engenharia de Produtos e o desenvolvimento de Matrizes, que é o responsável pela concepção técnica e artística dos artigos elaborados pela instituição.
+
+O terceiro parágrafo do texto é iniciado pela palavra “Ela...”. Esta palavra substitui o seguinte termo
+`,
+      alternativas: [
+        "A Casa da Moeda.",
+        "da mineração.",
+        "a Gráfica Geral.",
+        "concepção técnica."
+      ],
+      correta: 0
+    },
+    {
+      id: 51,
+      enunciado: "O significado da palavra 'avariados' é:",
+      alternativas: [
+        "de largura maior.",
+        "de tamanho maior.",
+        "com material pesado.",
+        "apresentados com danificações."
+      ],
+      correta: 3
+      //precisa de imagem aqui
+    },
+    {
+      id: 52,
+      enunciado: `Sinceridade de criança
+
+Era uma época de “vacas magras”. Morava só com meu filho, pagando aluguel, ganhava pouco e fui convidada para a festa de aniversário de uma grande amiga. O problema é que não tinha dinheiro messmoooooo. 
+
+Nesse texto, a expressão “‘vacas magras’” (1° parágrafo) indica que a narradora
+`,
+      alternativas: [
+        "comprava objetos baratos.",
+        "havia perdido muito peso.",
+        "possuía pouco dinheiro.",
+        "tinha criação de gado."
+      ],
+      correta: 2
+    },
+    {
+      id: 53,
+      enunciado: `EDUCAÇÃO DE HOJE ADIA O FIM DA ADOLESCÊNCIA
+
+Há pouco tempo recebi uma mensagem que me provocou uma boa reflexão. O interessante é que não foi o conteúdo dela que fisgou minha atenção, e sim sua primeira linha, em que os remetentes se identificavam. Para ser clara, vou reproduzi-la: “Somos dois adolescentes, com 21 e 23 anos...”.  [...]
+
+No primeiro parágrafo, a palavra “fisgou” tem sentido de
+`,
+      alternativas: [
+        "levou.",
+        "indicou.",
+        "chamou.",
+        "identificou."
+      ],
+      correta: 2
+    },
+    {
+      id: 54,
+      enunciado: `MAIS DE 70 ANIMAIS SÃO ADOTADOS EM FEIRA EM SP
+
+Cerca de 1, 5 mil pessoas participaram da feira de adoção de cães e gatos organizada pelo Centro de Controle de Zoonoses (CCZ) de São Paulo em Santana, na Zona Norte da capital paulista. Segundo a Secretaria Municipal da Saúde, foram adotados 47 gatos e 30 cães, entre eles cinco pit bulls. A novidade deste ano foi o “cãorreio elegante”. Os cachorros fizeram o papel de cupido trocando mensagens entre os visitantes da festa. Cerca de 400 animais ficaram à disposição de visitantes interessados em levá-los para suas casas.
+
+No trecho “foram adotados 47 gatos e 30 cães, entre eles cinco pit bulls”, a palavra destacada refere-se a `,
+      alternativas: [
+        "cães.",
+        "animais.",
+        "gatos.",
+        "cavalos."
+      ],
+      correta: 0
+    },
+    {
+      id: 55,
+      enunciado: `MOBÍLIA DE CARA NOVA
+      O sofá já mudou de lugar três vezes, as almofadas já foram trocadas, mas a aparência da sala de estar continua a mesma. Se você enjoou dos seus móveis, pense duas vezes antes de passá-los adiante ou jogá-los fora: seguindo a onda da sustentabilidade, customizar a mobília se tornou uma opção criativa e ecologicamente correta para mudar a cara da sua casa. Uma demão de tinta colorida e uma nova estampa para o estofado podem dar outra vida àquela cadeira velha.
+      
+      “Se você enjoou dos seus móveis, pense duas vezes antes de passá-los adiante ou jogá-los fora...”
+      No trecho acima, os segmentos sublinhados referem-se 
+
+      `,
+      alternativas: [
+        "aos sofás.",
+        "aos estofados.",
+        "aos móveis.",
+        "aos armários."
+      ],
+      correta: 0
+    },
+    {
+      id: 56,
+      enunciado: `OS ANIMAIS DA AMAZÔNIA
+
+A Amazônia abriga uma riqueza de fauna sem paralelo: não há outro lugar do mundo que tenha tamanha variedade de peixes, aves, primatas e insetos como esta floresta. (...)
+Os mamíferos são os animais mais difíceis de serem avistados na floresta, já que a maioria tem hábitos noturnos e, os que podem ser observados de dia, normalmente fogem de qualquer barulho humano. (...) Algumas espécies estão ameaçadas de extinção, em função da degradação do habitat e da caça predatória, como a onça-pintada e o peixe-boi.
+
+“A Amazônia abriga uma riqueza de fauna sem paralelo...” No trecho acima, a palavra sublinhada pode ser substituída por`,
+      alternativas: [
+        "onça.",
+        "peixe-boi.",
+        "mamíferos.",
+        "animais."
+      ],
+      correta: 3
+    },
+    {
+      id: 57,
+      enunciado: `Onde estou mesmo?
+      
+      Cabeça no mundo da lua em plena sala de aula, notas em queda livre, falta de disposição para tudo e reclamações cada vez mais frequentes por bagunça, brigas e discussões em classe – se esse quadro lhe parece familiar, seu filho pode estar dormindo menos do que deveria. Ou na hora errada.
+      
+      Nesse texto, a expressão “cabeça no mundo da lua” significa que o filho`,
+      alternativas: [
+        "dorme pouco à noite.",
+        "é bagunceiro.",
+        "está disperso.",
+        "está fora da sala de aula."
+      ],
+      correta: 2
+    },
+    {
+      id: 58,
+      enunciado: `Aí, a filha do intelectual, que nunca tirava o primeiro lugar na escola, chega em casa e pergunta ao pai:
+—Pai, você sabe qual é a última?
+O pai pensou um pouco e disse:
+— Não filha, qual é?
+E a filha:
+— Eu.
+
+O pai entendeu que “a última” era
+`,
+      alternativas: [
+        "a escola.",
+        "a filha.",
+        "uma casa.",
+        "uma novidade."
+      ],
+      correta: 3
+    },
+    {
+      id: 59,
+      enunciado: `Um pouco antes do rio Negro encontrar com o Solimões o barco parou. E quem quisesse podia dar um mergulho. Minha irmã estava distraída, então eu saí de perto e me joguei. Só que eu tinha visto que uns carinhas estavam mergulhando do teto do barco.
+Então, eu, todo metido, subi no teto do barco. E foi de lá que eu mergulhei.
+Do teto do barco eu mergulhei na água escura do rio Negro feito uma flecha atirada de um arco por um índio guarani. Eu fui indo, indo e indo para baixo. E continuei indo.
+Parecia que eu não ia nunca acabar de ir.
+SOUZA, Flávio. Jack Brodóski no coração da Amazônia. Companhia das letrinhas. p.31.Fragmento.
+
+No trecho “Eu mergulhei feito uma flecha atirada de um arco por um índio guarani”, a expressão destacada indica que o mergulho foi`,
+      alternativas: [
+        "perfeito.",
+        "perigoso.",
+        "rápido.",
+        "trágico."
+      ],
+      correta: 2
+    }
+  ],
+  dificil: [
+    // --- QUESTÕES D14 (Difícil - Recursos Coesivos) ---
+    {
+      id: 80,
+      enunciado: "Leia o trecho: 'Meri, você sabe nadar? / Não, mas eu sei aprender.' A conjunção 'mas' dá a ideia de:",
+      alternativas: [
+        "oposição, pois afirma a habilidade de Meri nadar.",
+        "oposição, pois nega a habilidade de Meri aprender.",
+        "conclusão, pois Meri conclui que vai aprender a nadar.",
+        "oposição, pois mesmo Meri não sabendo nadar, ela pode aprender."
+      ],
+      correta: 3
+    },
+    /*
+    {
+      id: 81,
+      enunciado: "Na canção 'Me Abrace', os versos são: 'E quando eu estiver triste / Simplesmente me abrace / Quando eu estiver louco / Subitamente se afaste / Mas quando eu estiver morto / Suplico que não me mate'. Qual o sentido que os conectivos 'E', 'Quando' e 'Mas' dão ao texto?",
+      alternativas: [
+        "adição; tempo; causa.",
+        "consequência; causa; continuidade.",
+        "adição de ideia; tempo; oposição de ideias.",
+        "consequência; tempo; continuidade de ideias."
+      ],
+      correta: 2
+    },
+    */
+    {
+      id: 82,
+      enunciado: "Na oração: 'Nossa geração toda precisa de psicólogo, porque a geração anterior também precisava, mas achava frescura.', o emprego do conectivo 'porque' indica:",
+      alternativas: [
+        "causa.",
+        "tempo.",
+        "conclusão.",
+        "explicação."
+      ],
+      correta: 3
+    },
+    {
+      id: 83,
+      enunciado: "Na mesma oração: 'Nossa geração toda precisa de psicólogo, porque a geração anterior também precisava...', o termo 'também' indica:",
+      alternativas: [
+        "distinção entre gerações.",
+        "oposição.",
+        "descontinuidade.",
+        "comparação",
+      ],
+      correta: 3
+    },
+    {
+      id: 84,
+      enunciado: `"Nem sempre é fácil o entendimento entre os membros da família. É compreensível e
+natural que os jovens e os adultos tenham visões de mundo diferentes. O conflito entre
+gerações sempre existiu. Os jovens têm impulsos de rebeldia quando começam a formar
+seus próprios valores. Todavia, com o passar dos anos, compreendem que os pais tinham
+razão em muitas coisas com as quais não concordavam no passado."
+FERNANDES, Flávia Leão. Conflitos entre pais e filhos. Vila Mulher (adaptado).
+No trecho: "Todavia, com o passar dos anos compreendem que os pais tinham razão em muitas coisas...". A conjunção "todavia" se contrapõe a que ideia no texto?
+`,
+      alternativas: [
+        "À ideia de que nem sempre é fácil o entendimento entre os membros da família.",
+        "À ideia de que os pais devem facilitar esse relacionamento.",
+        "À ideia de que os jovens têm impulsos de rebeldia.",
+        "À ideia de que é compreensível que jovens tenham visões diferentes."
+      ],
+      correta: 2
+    },
+    {
+      id: 85,
+      enunciado: "No trecho: 'A forma de comunicação tem um impacto muito grande na saúde mental dos membros da família, pois influencia na maneira como as pessoas lidam com as emoções.' A conjunção 'pois' indica:",
+      alternativas: [
+        "efeito.",
+        "causa.",
+        "tempo.",
+        "explicação."
+      ],
+      correta: 3
+    },
+    {
+      id: 86,
+      enunciado: "No trecho: 'O pai e a mãe que não dedicam tempo aos filhos tentam compensar a ausência com recompensas materiais.' Qual oração expressa a causa desse conflito?",
+      alternativas: [
+        "Os jovens têm impulsos de rebeldia ao formar valores.",
+        "Os pais que têm dificuldade de demonstrar afeto reforçam os conflitos.",
+        "É compreensível e natural que jovens tenham visões de mundo diferentes.",
+        "O pai e a mãe que não dedicam tempo e atenção aos filhos tentam compensar com bens."
+      ],
+      correta: 3
+    },
+    {
+      id: 87,
+      enunciado: "Na frase: 'Afinal, se você não cuidar da sua saúde mental, quem vai cuidar?', a palavra 'Afinal' expressa:",
+      alternativas: [
+        "causa.",
+        "consequência.",
+        "conclusão.",
+        "explicação."
+      ],
+      correta: 3
+    },
+    {
+      id: 88,
+      enunciado: "No período: 'Se você não cuidar da sua saúde mental, quem vai cuidar?', a conjunção 'se' estabelece sentido de:",
+      alternativas: [
+        "causa.",
+        "consequência.",
+        "comparação.",
+        "condição."
+      ],
+      correta: 3
+    },
+    /*
+    {
+      id: 89,
+      enunciado: "No fragmento de Clarice Lispector: '...podia parar e enxugar a testa, olhando o calmo horizonte. Ela plantara as sementes que tinha na mão, não outras, mas essas apenas.' O conectivo 'mas' assume função de:",
+      alternativas: [
+        "sequência temporal.",
+        "oposição de ideias.",
+        "adição de ideias.",
+        "causa."
+      ],
+      correta: 1
+    },
+    
+    {
+      id: 90,
+      enunciado: "No trecho: 'O papel de chiclete jogado ali, a garrafa de plástico aqui... um tipo de bactéria que deles se alimenta'. O pronome 'deles' retoma:",
+      alternativas: [
+        "dejetos e restos.",
+        "rios.",
+        "residências.",
+        "esgotos."
+      ],
+      correta: 1
+    },
+    A SE PENSAR
+    */
+    {
+      id: 91,
+      enunciado: "No trecho: 'O homem viu o rio e se entusiasmou pela sua beleza. O rio corria pela planície...'. O termo 'sua' refere-se a:",
+      alternativas: [
+        "homem.",
+        "planície.",
+        "pedras.",
+        "rio."
+      ],
+      correta: 3
+    },
+    {
+      id: 92,
+      enunciado: "No texto: 'Esse processo tem continuidade nas séries subsequentes...'. O termo 'Esse processo' é um recurso coesivo que:",
+      alternativas: [
+        "antecipa uma informação.",
+        "retoma a ideia de trabalho com a leitura iniciado na escola.",
+        "substitui a Educação Infantil.",
+        "introduz uma ideia nova."
+      ],
+      correta: 1
+    },
+    {
+      id: 93,
+      enunciado: "Na frase: 'Ana e Maria são amigas. Elas fazem tudo juntas.' O pronome 'Elas' retoma:",
+      alternativas: [
+        "Ana apenas.",
+        "Maria apenas.",
+        "Ana e Maria.",
+        "a ação de fazer juntas."
+      ],
+      correta: 2
+    },
+    {
+      id: 94,
+      enunciado: "Na frase: 'Joana chegou cedo à escola, pois tinha prova naquele dia.' A conjunção 'pois' indica relação de:",
+      alternativas: [
+        "oposição.",
+        "conclusão.",
+        "tempo.",
+        "acréscimo de ideia."
+      ],
+      correta: 3
+    },
+    {
+      id: 95,
+      enunciado: "Na frase: 'O estudo é importante para o futuro. Além disso, contribui para o desenvolvimento pessoal.' A expressão 'Além disso' indica:",
+      alternativas: [
+        "oposição.",
+        "conclusão.",
+        "acréscimo de ideia.",
+        "causa."
+      ],
+      correta: 2
+    },
+    {
+      id: 96,
+      enunciado: "Na frase: 'Não gostava de estudar; porém, obteve ótimas notas.' O conectivo 'porém' estabelece relação de:",
+      alternativas: [
+        "adição.",
+        "conclusão.",
+        "causa.",
+        "oposição."
+      ],
+      correta: 3
+    },
+    {
+      id: 97,
+      enunciado: "Na frase: 'O homem plantou a semente. Ela cresceu e deu frutos.' O pronome 'Ela' refere-se a:",
+      alternativas: [
+        "homem.",
+        "semente.",
+        "fruto.",
+        "planta."
+      ],
+      correta: 1
+    },
+    {
+      id: 98,
+      enunciado: "Na frase: 'O livro que li ontem é muito interessante.' O pronome relativo 'que' é um elemento coesivo porque:",
+      alternativas: [
+        "introduz uma ideia independente.",
+        "retoma 'livro' e liga as orações.",
+        "substitui o pronome 'eu'.",
+        "indica uma relação de causa."
+      ],
+      correta: 1
+    },
+    {
+      id: 99,
+      enunciado: "Expressões como 'primeiramente', 'em seguida', 'por fim' e 'finalmente' têm como função principal:",
+      alternativas: [
+        "opor ideias.",
+        "indicar conclusão.",
+        "organizar sequencialmente as ideias.",
+        "explicar um conceito."
+      ],
+      correta: 2
+    }
+  ]
+};
